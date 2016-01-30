@@ -22,17 +22,17 @@
       
       <!-- vehicle api 必須 : ここから-->            
       <script>
-        var roomID = "YOUR.NAME.HERE@example.com";
-        
-        window.onload = function () {
-          document.getElementById("WSRoomID").innerHTML = roomID;
-          var msg = {"roomID":roomID, "data":"NOT REQUIRED"};
-          socket.emit('joinRoom', JSON.stringify(msg));        
-        }
+
       </script>
       <!-- vehicle api 必須 : ここまで -->
         
       <script>              
+    window.onload = function () {
+      	document.getElementById("connect").addEventListener('click', function(){
+          document.getElementById("WSRoomID").innerHTML = roomID;
+          var msg = {"roomID":roomID, "data":"NOT REQUIRED"};
+          socket.emit('joinRoom', JSON.stringify(msg));        
+      	});
         var gVehicleSpeed = 0;
         var gEngineSpeed = 0;
         var vehicleSpeedSub = navigator.vehicle.vehicleSpeed.subscribe(function(vehicleSpeed) {
@@ -60,11 +60,12 @@
         }
         addMarker2(gVehicleSpeed, gEngineSpeed, location.latitude, location.longitude);
       });
-      </script>
+    }
+    </script>
     </head>
     <body onload="initMap(); ">
       <div>
-        Room ID:<span id="WSRoomID"> </span>
+        Room ID:<input type=text id="WSRoomID"> </input><button id="connect">Start</button>
       </div>
       
       <div id="map"></div>

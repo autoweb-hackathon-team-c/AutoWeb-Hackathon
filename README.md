@@ -178,6 +178,9 @@
 
 * ハッカソンガイダンス スライド [link](./doc/files/hackathon_guidance.pdf)
 
+* WebをクルマにつなぐW3Cの国際標準化
+  (慶応大学 芦村先生 スライド) [link](./doc/files/w3c_doukou.pdf)
+
 ## FAQ
 
 wikiの[FAQ](https://github.com/access-company/autoweb-hackathon/wiki)をご参照ください。

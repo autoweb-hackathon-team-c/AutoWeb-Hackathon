@@ -3,12 +3,12 @@
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-      <!-- vehicle api 必須 : ここから-->      
+      <!-- vehicle api 必須 : ここから-->
       <script src="http://52.193.125.145:3000/socket.io/socket.io.js"></script>
       <script src="http://52.193.125.145:3000/www/js/vehicleAPI.js"></script>
       <script src="http://52.193.125.145:3000/www/js/vehicleAPI-client.js"></script>
       <!-- vehicle api 必須 : ここまで -->
-      
+
       <!-- Map -->
 	    <script src="http://support.chizumaru.com/aspusers/online_manual/AjaxFramework/3.3.13/lib/Mapple.js" type="text/javascript"></script>
 	    <script src="http://support.chizumaru.com/aspusers/online_manual/AjaxFramework/3.3.13/lib/slider.js" type="text/javascript"></script>
@@ -24,12 +24,12 @@
             z-index:-1;
         }
       </style>
-      
-      <!-- vehicle api 必須 : ここから-->            
+
+      <!-- vehicle api 必須 : ここから-->
       <script>
       </script>
       <!-- vehicle api 必須 : ここまで -->
-        
+
       <script>
         var map;
         var x=502933;
@@ -43,7 +43,7 @@
 
       	document.getElementById("connect").addEventListener('click', function(){
           var msg = {"roomID":document.getElementById("WSRoomID").value, "data":"NOT REQUIRED"};
-          socket.emit('joinRoom', JSON.stringify(msg));        
+          socket.emit('joinRoom', JSON.stringify(msg));
         });
 //        map = new Mapple.SingleMap("map", w, h, x, y, scl, {k1: "kddisou", k2: "2238ader", position: "relative", datum: "tokyo" });
         map = new Mapple.SingleMap("map", w, h, x, y, scl, {k1: "kddisou", k2: "2238ader", position: "relative", datum: "wgs84" });
@@ -60,7 +60,7 @@
 	        var locationSub = navigator.vehicle.location.subscribe(function(location) {
 	        var oldLatitude;
 	        var oldLongitude;
-	
+
 	        if(oldLatitude === undefined || oldLongitude === undefined){
 	          //初回
 	          oldLatitude = location.latitude;
@@ -69,7 +69,7 @@
 	          //前回と位置が同じ : do nothing
 	          return;
 	        } else {
-	          //前回と位置が異なる 
+	          //前回と位置が異なる
 	          oldLatitude = location.latitude;
 	          oldLongitude = location.longitude;
 	        }
@@ -83,9 +83,8 @@
       <div>
         Room ID:<input type=text id="WSRoomID"> </input><button id="connect">Start</button>
       </div>
-      
+
       <div id="map"></div>
       <button id="sound">サウンドテスト</button>
     </body>
 </html>
-

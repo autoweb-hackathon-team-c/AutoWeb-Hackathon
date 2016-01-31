@@ -40,7 +40,8 @@ end
 # http://localhost:5000/light.json?lon=134.207916667&lat=35.5126777778&datetime=2016-01-31T17:24:00%2B09:00
 
 get '/light.json' do
-  datetime = DateTime.parse(params['datetime'])
+  datetime = Time.at(params['datetime'].to_i/1000)
+  # datetime = DateTime.parse(params['datetime'])
 
   uri = URI.parse('http://api.yumake.jp/1.0/sun.php')
   query = {
@@ -48,12 +49,18 @@ get '/light.json' do
     format: 'json',
     lat: params['lat'],
     lon: params['lon'],
+    # date: Time.at(datetime.to_i/1000).strftime('%Y%m%d')
     date: datetime.strftime('%Y%m%d')
   }
   uri.query = URI.encode_www_form(query)
   result = JSON.parse(open(uri, &:read))
-
   sunset_datetime = DateTime.parse(result['sunset'])
   result['light'] = datetime >= sunset_datetime - Rational(30, 24 * 60)
+  p '/////'
+  p result
+  p datetime
+  p datetime.strftime('%Y%m%d')
+  p sunset_datetime
+  p '---'
   json result
 end

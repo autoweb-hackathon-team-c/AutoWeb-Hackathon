@@ -91,12 +91,12 @@
 
         var sideOffset = {leftSideOffset: 0, rightSideOffset: 0, topSideOffset: 0, bottomSideOffset: 0};
         var EventDB = [
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/fit.gif",msg:"今日も安全運転よろしくね！<br>今日の天気はミゾレです。"},
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/prius.gif",msg:"シートベルト忘れないでね！"},
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/alto.gif",msg:"ヘッドライト点けてね"},
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/gtr.gif",msg:"前の車が近すぎるよ！！"},
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/crown.gif",msg:"ちょっとふらついてるよ！"},
-        	{ x:0,y:280,img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/voxy.gif",msg:"今日も運転お疲れ様でした"}
+        	{ x:0,y:280,vc:"anzen", img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/fit.gif",msg:"今日も安全運転よろしくね！<br>今日の天気はミゾレです。"},
+        	{ x:0,y:280,vc:"sheetbelt",img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/prius.gif",msg:"シートベルト忘れないでね！"},
+        	{ x:0,y:280,vc:"headlight",img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/alto.gif",msg:"ヘッドライト点けてね"},
+        	{ x:0,y:280,vc:"chikasugi",img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/6db80c52da682438980cdd446aa81c6f7f58fff8/img/gtr.gif",msg:"前の車が近すぎるよ！！"},
+        	{ x:0,y:280,vc:"furatuki",img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/crown.gif",msg:"ちょっとふらついてるよ！"},
+        	{ x:0,y:280,vc:"otukare",img:"https://raw.githubusercontent.com/autoweb-hackathon-team-c/AutoWeb-Hackathon/a773de795083368c29d09bd6a874fa0988c14aab/img/voxy.gif",msg:"今日も運転お疲れ様でした"}
         ];
 
 		function ServerConnect(){
@@ -122,6 +122,7 @@
 			}else{
 				document.getElementById("popup").innerHTML = EventDB[idx].msg;
 			}
+			ion.sound.play(EventDB[idx].vc);
 			document.getElementById("ons").style.display = "inline";
 			setTimeout(function(){
 				document.getElementById("ons").style.display = "none";
@@ -208,9 +209,9 @@
             if(data.light){
               // 25
               // ion.sound.play("nyanpass");
-              ion.sound.play("headlight");
-              OnsWrite(MANA003);
-              console.log('つけなさい');
+//              ion.sound.play("headlight");
+//              OnsWrite(MANA003);
+//              console.log('つけなさい');
             }
           });
         });

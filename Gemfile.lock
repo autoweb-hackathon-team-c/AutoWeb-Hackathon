@@ -61,7 +61,7 @@ DEPENDENCIES
   rake
   sass (= 3.4.19)
   sinatra (= 1.4.6)
-  sinatra-contrib
+  sinatra-contrib (= 1.4.6)
   slim (= 3.0.6)
 
 BUNDLED WITH

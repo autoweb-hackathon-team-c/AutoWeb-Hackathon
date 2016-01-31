@@ -2,6 +2,9 @@ ion.sound({
   sounds: [{
     name: "nyanpass",
     volume: 0.2
+  }, {
+    name: "headlight",
+    volume: 0.2
   }],
   volume: 0.5,
   path: "sounds/",
